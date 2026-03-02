@@ -1,0 +1,120 @@
+---
+const phases = [
+  {
+    number: '01',
+    tag: 'Analyse',
+    title: 'Opportunity Mapping',
+    description: 'Analyse des Status quo und Identifikation der entscheidenden Hebel.',
+    points: [
+      'Bestandsaufnahme der Revenue-Organisation',
+      'Analyse von Pipeline, Conversion und Churn',
+      'Identifikation kritischer Engpässe',
+    ],
+    highlighted: false,
+  },
+  {
+    number: '02',
+    tag: 'Strategie',
+    title: 'Strategie & Architektur',
+    description: 'Definition von Zielmarkt, KPI-System, Go-to-Market und Datenarchitektur.',
+    points: [
+      'ICP-Definition und Zielmarktsegmentierung',
+      'KPI-Framework und Revenue-Ziele',
+      'Go-to-Market-Architektur',
+    ],
+    highlighted: false,
+  },
+  {
+    number: '03',
+    tag: 'Umsetzung',
+    title: 'Implementierung',
+    description: 'Einführung von Prozessen, Tools und Tracking in der Organisation.',
+    points: [
+      'Prozess-Design und Rollout',
+      'Tech-Stack-Einführung und Integration',
+      'Reporting, Dashboards und Training',
+    ],
+    highlighted: false,
+  },
+  {
+    number: '+1',
+    tag: 'Betrieb',
+    title: 'Operative Umsetzung',
+    description: 'Laufende Optimierung nach dem Test-Measure-Learn-Prinzip.',
+    points: [
+      'Regelmässiges Performance-Review',
+      'Iterative Optimierung der Systeme',
+      'Kontinuierliche Skalierung',
+    ],
+    highlighted: true,
+  },
+];
+---
+
+<section id="vorgehen" class="py-24 lg:py-32 bg-navy-900">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="max-w-3xl mb-16 lg:mb-20">
+      <div class="inline-flex items-center gap-3 mb-6">
+        <div class="w-8 h-px bg-accent"></div>
+        <span class="text-xs font-medium tracking-[0.25em] uppercase text-accent">Vorgehen</span>
+      </div>
+      <h2 class="text-3xl lg:text-5xl font-bold text-white leading-[1.1] tracking-tight mb-3">
+        Das 3+1-Modell.
+      </h2>
+      <p class="text-slate-500 text-sm">Strukturiert. Messbar. Nachhaltig.</p>
+    </div>
+
+    <!-- Phase Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {phases.map((phase, index) => (
+        <div
+          class={`relative rounded-xl p-7 border transition-colors ${
+            phase.highlighted
+              ? 'border-accent/25 bg-accent/5'
+              : 'border-white/8 bg-navy-800/20 hover:bg-navy-800/40'
+          }`}
+        >
+          <!-- Phase number -->
+          <div class={`font-mono text-4xl font-bold mb-6 leading-none ${
+            phase.highlighted ? 'text-accent/30' : 'text-slate-800'
+          }`}>
+            {phase.number}
+          </div>
+
+          <!-- Tag -->
+          <div class={`inline-block text-[10px] font-medium tracking-[0.2em] uppercase mb-3 px-2 py-1 rounded ${
+            phase.highlighted
+              ? 'text-accent bg-accent/10'
+              : 'text-slate-600 bg-white/4'
+          }`}>
+            {phase.tag}
+          </div>
+
+          <h3 class="text-sm font-semibold text-white mb-3 leading-snug">{phase.title}</h3>
+          <p class="text-xs text-slate-500 leading-relaxed mb-5">{phase.description}</p>
+
+          <ul class="space-y-2">
+            {phase.points.map((point) => (
+              <li class="flex items-start gap-2 text-xs text-slate-600">
+                <span class={`mt-0.5 flex-shrink-0 ${phase.highlighted ? 'text-accent/60' : 'text-slate-700'}`}>—</span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+
+          <!-- Arrow connector (desktop) -->
+          {index < 3 && (
+            <div class="hidden lg:flex absolute top-1/2 -right-3 -translate-y-1/2 items-center justify-center w-6 h-6 z-10">
+              <svg class="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,91 @@
+---
+const navItems = [
+  { href: '#problem', label: 'Das Problem' },
+  { href: '#revos', label: 'RevOS' },
+  { href: '#vorgehen', label: 'Vorgehen' },
+  { href: '#warum-valos', label: 'Warum Valos' },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-navy-950/90 backdrop-blur-md">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group">
+        <svg width="28" height="28" viewBox="0 0 32 32" class="flex-shrink-0">
+          <rect width="32" height="32" rx="5" fill="#3B7EF7"/>
+          <path d="M8 9l8 14 8-14" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span class="text-sm font-medium tracking-[0.18em] uppercase text-slate-300 group-hover:text-white transition-colors">
+          Valos Group
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="text-sm text-slate-500 hover:text-white transition-colors tracking-wide"
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Desktop CTA -->
+      <a
+        href="#kontakt"
+        class="hidden md:inline-flex items-center px-5 py-2.5 text-sm font-medium bg-accent hover:bg-accent-light text-white rounded transition-colors"
+      >
+        Erstgespräch vereinbaren
+      </a>
+
+      <!-- Mobile menu toggle -->
+      <button
+        class="md:hidden p-2 text-slate-400 hover:text-white transition-colors"
+        id="mobile-menu-toggle"
+        aria-label="Menü öffnen"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="hidden md:hidden bg-navy-900 border-t border-white/5" id="mobile-menu">
+    <div class="px-6 py-5 space-y-1">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="block text-sm text-slate-400 hover:text-white transition-colors py-3 border-b border-white/5"
+        >
+          {item.label}
+        </a>
+      ))}
+      <div class="pt-4">
+        <a
+          href="#kontakt"
+          class="block w-full text-center px-5 py-3 text-sm font-medium bg-accent text-white rounded"
+        >
+          Erstgespräch vereinbaren
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+  // Close menu on link click
+  menu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => menu.classList.add('hidden'));
+  });
+</script>

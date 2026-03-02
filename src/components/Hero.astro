@@ -1,0 +1,84 @@
+---
+---
+
+<section class="relative min-h-screen flex items-center overflow-hidden pt-16">
+
+  <!-- Grid background -->
+  <div class="absolute inset-0 hero-grid opacity-50 pointer-events-none"></div>
+
+  <!-- Blue glow -->
+  <div class="absolute top-1/3 right-1/4 w-[500px] h-[400px] bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-navy-950 to-transparent pointer-events-none"></div>
+
+  <!-- Abstract node graphic (top right, decorative) -->
+  <div class="absolute top-24 right-0 w-[480px] h-[400px] opacity-20 hidden lg:block pointer-events-none">
+    <svg viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+      <circle cx="240" cy="140" r="6" fill="#3B7EF7" opacity="0.8"/>
+      <circle cx="340" cy="80" r="4" fill="#3B7EF7" opacity="0.6"/>
+      <circle cx="380" cy="200" r="5" fill="#3B7EF7" opacity="0.7"/>
+      <circle cx="160" cy="200" r="4" fill="#3B7EF7" opacity="0.5"/>
+      <circle cx="280" cy="280" r="5" fill="#3B7EF7" opacity="0.6"/>
+      <circle cx="420" cy="300" r="3" fill="#3B7EF7" opacity="0.4"/>
+      <circle cx="120" cy="300" r="3" fill="#3B7EF7" opacity="0.4"/>
+      <line x1="240" y1="140" x2="340" y2="80" stroke="#3B7EF7" stroke-width="0.5" opacity="0.5"/>
+      <line x1="240" y1="140" x2="380" y2="200" stroke="#3B7EF7" stroke-width="0.5" opacity="0.5"/>
+      <line x1="240" y1="140" x2="160" y2="200" stroke="#3B7EF7" stroke-width="0.5" opacity="0.5"/>
+      <line x1="240" y1="140" x2="280" y2="280" stroke="#3B7EF7" stroke-width="0.5" opacity="0.5"/>
+      <line x1="380" y1="200" x2="420" y2="300" stroke="#3B7EF7" stroke-width="0.5" opacity="0.3"/>
+      <line x1="160" y1="200" x2="120" y2="300" stroke="#3B7EF7" stroke-width="0.5" opacity="0.3"/>
+      <line x1="280" y1="280" x2="420" y2="300" stroke="#3B7EF7" stroke-width="0.5" opacity="0.3"/>
+      <line x1="280" y1="280" x2="120" y2="300" stroke="#3B7EF7" stroke-width="0.5" opacity="0.3"/>
+    </svg>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-6 lg:px-8 py-24 lg:py-32 w-full">
+    <div class="max-w-3xl">
+
+      <!-- Label -->
+      <div class="inline-flex items-center gap-3 mb-10">
+        <div class="w-8 h-px bg-accent"></div>
+        <span class="text-xs font-medium tracking-[0.25em] uppercase text-accent">Revenue Operating System</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.04] tracking-tight mb-8">
+        Umsatz darf kein<br />Zufall sein.
+      </h1>
+
+      <!-- Subline -->
+      <p class="text-lg lg:text-xl text-slate-400 max-w-2xl leading-relaxed mb-12">
+        Wir entwickeln das Revenue Operating System für planbares, nachhaltiges Wachstum –
+        ein integriertes Steuerungssystem, das Marketing, Sales, Produkt und Customer Success
+        in einem gemeinsamen System verbindet.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a
+          href="#kontakt"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-medium bg-accent hover:bg-accent-light text-white rounded transition-colors"
+        >
+          Erstgespräch vereinbaren
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <a
+          href="#revos"
+          class="inline-flex items-center justify-center px-8 py-4 text-sm font-medium border border-white/10 text-slate-400 hover:text-white hover:border-white/20 rounded transition-colors"
+        >
+          Mehr erfahren
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+</style>

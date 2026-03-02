@@ -1,0 +1,57 @@
+---
+const problems = [
+  {
+    number: '01',
+    title: 'Isolierte Silos',
+    description:
+      'Marketing und Sales arbeiten ohne gemeinsame Ziele, Prozesse oder Metriken. Reibungsverluste entstehen, wo Zusammenarbeit entscheidend wäre.',
+  },
+  {
+    number: '02',
+    title: 'Hoffnung statt System',
+    description:
+      'Forecasts basieren auf Intuition statt auf belastbaren Daten und Strukturen. Planungssicherheit bleibt systematisch aus.',
+  },
+  {
+    number: '03',
+    title: 'Fragmentierte KPIs',
+    description:
+      'Jede Funktion optimiert ihre eigenen Metriken – ohne Blick auf das Gesamtsystem. Die Revenue-Organisation zieht nicht an einem Strang.',
+  },
+  {
+    number: '04',
+    title: 'Taktik statt Strategie',
+    description:
+      'Operative Massnahmen ersetzen strategisches Denken. Das Ergebnis: kurzfristige Aktivität ohne nachhaltige Wirkung.',
+  },
+];
+---
+
+<section id="problem" class="py-24 lg:py-32 bg-navy-900">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="max-w-3xl mb-16 lg:mb-20">
+      <div class="inline-flex items-center gap-3 mb-6">
+        <div class="w-8 h-px bg-accent"></div>
+        <span class="text-xs font-medium tracking-[0.25em] uppercase text-accent">Das Problem</span>
+      </div>
+      <h2 class="text-3xl lg:text-5xl font-bold text-white leading-[1.1] tracking-tight">
+        Umsatzgenerierung ist zentral –<br class="hidden lg:block" />
+        aber häufig dysfunktional.
+      </h2>
+    </div>
+
+    <!-- Problem Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 rounded-2xl overflow-hidden">
+      {problems.map((problem) => (
+        <div class="bg-navy-900 p-8 lg:p-10 group hover:bg-navy-800/60 transition-colors duration-200">
+          <div class="font-mono text-xs text-slate-700 mb-5 tracking-widest">{problem.number}</div>
+          <h3 class="text-base font-semibold text-white mb-3">{problem.title}</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">{problem.description}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
