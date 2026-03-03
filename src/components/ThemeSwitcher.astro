@@ -4,6 +4,7 @@
 
 const themes = [
   { id: 'default',          label: 'Current',       desc: 'Dark Navy (Tailwind)' },
+  { id: 'pitch',            label: 'Pitch Deck',     desc: 'Brand: Rot + Teal' },
   { id: 'valos-1',          label: 'Valos 1',        desc: 'Light classic' },
   { id: 'valos-1-revos',    label: 'V1 + Animation', desc: 'Light + CSS Ringe' },
   { id: 'valos-1-revos-svg',label: 'V1 + SVG',       desc: 'Light + SVG Engine' },
@@ -161,6 +162,7 @@ const themes = [
   }
 
   .ts-dot[data-dot="default"]            { background: #070D1C; }
+  .ts-dot[data-dot="pitch"]              { background: linear-gradient(135deg, #0F1D2E 50%, #E63946 50%); }
   .ts-dot[data-dot="valos-1"]            { background: #F8FAFC; border-color: rgba(11,31,51,0.4); }
   .ts-dot[data-dot="valos-1-revos"]      { background: linear-gradient(135deg, #F8FAFC 50%, #0A84FF 50%); }
   .ts-dot[data-dot="valos-1-revos-svg"]  { background: linear-gradient(135deg, #F8FAFC 50%, #0B1F33 50%); }
@@ -236,6 +238,8 @@ const themes = [
 
   // --- Helpers ---
 
+  const FONT_OUTFIT_ID = 'ts-font-outfit';
+
   function addLink(href: string) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
@@ -262,6 +266,16 @@ const themes = [
     }
   }
 
+  function ensureOutfitFont() {
+    if (!document.getElementById(FONT_OUTFIT_ID)) {
+      const link = document.createElement('link');
+      link.id = FONT_OUTFIT_ID;
+      link.rel = 'stylesheet';
+      link.href = 'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap';
+      document.head.appendChild(link);
+    }
+  }
+
   // --- Core: apply theme ---
 
   function applyTheme(id: string) {
@@ -270,6 +284,14 @@ const themes = [
     document.documentElement.removeAttribute('data-theme');
 
     if (id === 'default') return;
+
+    // Pitch Deck theme (from PPTX brand design)
+    if (id === 'pitch') {
+      ensureOutfitFont();
+      document.documentElement.setAttribute('data-theme', 'pitch');
+      addLink('/themes/pitch-deck.css');
+      return;
+    }
 
     // All valos-1 variants share the base stylesheet + data-theme
     document.documentElement.setAttribute('data-theme', 'valos-1');
