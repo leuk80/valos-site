@@ -192,10 +192,40 @@ html[data-theme="pitch"] [class*="border-white\/"] {
   border-color: var(--pd-border);
 }
 
-/* --- SVG Logo accent fill (VO icon) --- */
-html[data-theme="pitch"] header rect[fill="#3B7EF7"],
-html[data-theme="pitch"] footer rect[fill="#3B7EF7"] {
-  fill: var(--pd-red);
+/* --- Logo swap: replace inline SVG with brand PNG logo --- */
+
+/* Hide the current generic SVG icon in header */
+html[data-theme="pitch"] header a[href="/"] > svg {
+  display: none;
+}
+
+/* Inject brand logo via ::before pseudo-element.
+   The PNG has a white background, displayed as a
+   clean badge matching the precision-engineering brand aesthetic. */
+html[data-theme="pitch"] header a[href="/"]::before {
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  width: 42px;
+  height: 28px;
+  background: white url('/logo.png') center / contain no-repeat;
+  border-radius: 4px;
+}
+
+/* Footer logo – same swap */
+html[data-theme="pitch"] footer a[href="/"] > svg {
+  display: none;
+}
+
+html[data-theme="pitch"] footer a[href="/"]::before {
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  width: 34px;
+  height: 22px;
+  background: white url('/logo.png') center / contain no-repeat;
+  border-radius: 3px;
+  opacity: 0.85;
 }
 
 /* --- Footer --- */
