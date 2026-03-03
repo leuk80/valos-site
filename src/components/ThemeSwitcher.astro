@@ -4,7 +4,8 @@
 
 const themes = [
   { id: 'default',          label: 'Current',       desc: 'Dark Navy (Tailwind)' },
-  { id: 'pitch',            label: 'Pitch Deck',     desc: 'Brand: Rot + Teal' },
+  { id: 'pitch',            label: 'Pitch Dark',     desc: 'Brand: Rot + Teal, dunkel' },
+  { id: 'pitch-light',      label: 'Pitch Light',    desc: 'Brand: Rot + Teal, hell' },
   { id: 'valos-1',          label: 'Valos 1',        desc: 'Light classic' },
   { id: 'valos-1-revos',    label: 'V1 + Animation', desc: 'Light + CSS Ringe' },
   { id: 'valos-1-revos-svg',label: 'V1 + SVG',       desc: 'Light + SVG Engine' },
@@ -163,6 +164,7 @@ const themes = [
 
   .ts-dot[data-dot="default"]            { background: #070D1C; }
   .ts-dot[data-dot="pitch"]              { background: linear-gradient(135deg, #0F1D2E 50%, #E63946 50%); }
+  .ts-dot[data-dot="pitch-light"]        { background: linear-gradient(135deg, #FFFFFF 50%, #E63946 50%); border-color: rgba(230,57,70,0.3); }
   .ts-dot[data-dot="valos-1"]            { background: #F8FAFC; border-color: rgba(11,31,51,0.4); }
   .ts-dot[data-dot="valos-1-revos"]      { background: linear-gradient(135deg, #F8FAFC 50%, #0A84FF 50%); }
   .ts-dot[data-dot="valos-1-revos-svg"]  { background: linear-gradient(135deg, #F8FAFC 50%, #0B1F33 50%); }
@@ -285,11 +287,18 @@ const themes = [
 
     if (id === 'default') return;
 
-    // Pitch Deck theme (from PPTX brand design)
+    // Pitch Deck themes (from PPTX brand design)
     if (id === 'pitch') {
       ensureOutfitFont();
       document.documentElement.setAttribute('data-theme', 'pitch');
       addLink('/themes/pitch-deck.css');
+      return;
+    }
+
+    if (id === 'pitch-light') {
+      ensureOutfitFont();
+      document.documentElement.setAttribute('data-theme', 'pitch-light');
+      addLink('/themes/pitch-deck-light.css');
       return;
     }
 

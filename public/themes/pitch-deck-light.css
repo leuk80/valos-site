@@ -1,0 +1,292 @@
+/* ======================================================
+   VALOS PITCH DECK LIGHT THEME – Pre-launch Design Preview
+   Same brand tokens as pitch-deck.css, light background variant.
+
+   Color Palette (from PPTX theme XML):
+     Page background: #FFFFFF / #EFF9FF (lt2)
+     Primary text:    #0F1D2E  (dk1 – navy becomes text)
+     Brand Red:       #E63946  (accent1 – CTAs, labels)
+     Mid Teal:        #77ABBD  (accent3 – secondary)
+     Light Teal:      #A8DADC  (accent2 – subtle fills)
+     Steel Blue:      #457B9D  (dk2 – muted text, borders)
+     Dark Blue:       #2A4C66  (accent5)
+     Section alt bg:  #EFF9FF  (lt2 from PPTX)
+
+   Typography: "Outfit" (same as dark variant)
+
+   Scope: html[data-theme="pitch-light"]
+   ====================================================== */
+
+/* --- CSS Custom Properties --- */
+html[data-theme="pitch-light"] {
+  --pl-bg:          #FFFFFF;
+  --pl-bg-alt:      #EFF9FF;
+  --pl-bg-section:  #F5F8FA;
+  --pl-navy:        #0F1D2E;
+  --pl-navy-mid:    #2A4C66;
+  --pl-red:         #E63946;
+  --pl-red-dark:    #C9303C;
+  --pl-teal:        #77ABBD;
+  --pl-teal-light:  #A8DADC;
+  --pl-steel:       #457B9D;
+  --pl-text:        #0F1D2E;
+  --pl-text-muted:  #457B9D;
+  --pl-text-dim:    #7BAABB;
+  --pl-border:      #D6E8F0;
+}
+
+/* --- Font + base --- */
+html[data-theme="pitch-light"] body {
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  background-color: var(--pl-bg);
+  color: var(--pl-text);
+}
+
+/* --- Override all navy Tailwind backgrounds → light --- */
+html[data-theme="pitch-light"] [class*="bg-navy-"] {
+  background-color: var(--pl-bg-alt);
+  color: var(--pl-text);
+}
+
+/* --- Header --- */
+html[data-theme="pitch-light"] header {
+  background-color: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--pl-border);
+  backdrop-filter: blur(12px);
+}
+
+html[data-theme="pitch-light"] header a {
+  color: var(--pl-navy);
+}
+
+html[data-theme="pitch-light"] header nav a {
+  color: var(--pl-steel);
+}
+
+html[data-theme="pitch-light"] header nav a:hover {
+  color: var(--pl-navy);
+}
+
+html[data-theme="pitch-light"] header span {
+  color: var(--pl-navy-mid);
+}
+
+/* --- Headings --- */
+html[data-theme="pitch-light"] h1,
+html[data-theme="pitch-light"] h2,
+html[data-theme="pitch-light"] h3,
+html[data-theme="pitch-light"] h4 {
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  color: var(--pl-navy);
+  letter-spacing: -0.02em;
+}
+
+/* --- Paragraphs & body text --- */
+html[data-theme="pitch-light"] p {
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  color: var(--pl-navy-mid);
+}
+
+/* --- Tailwind text overrides --- */
+html[data-theme="pitch-light"] [class*="text-white"] {
+  color: var(--pl-navy);
+}
+
+html[data-theme="pitch-light"] [class*="text-slate-400"],
+html[data-theme="pitch-light"] [class*="text-slate-500"] {
+  color: var(--pl-steel);
+}
+
+html[data-theme="pitch-light"] [class*="text-slate-600"],
+html[data-theme="pitch-light"] [class*="text-slate-700"] {
+  color: var(--pl-text-dim);
+}
+
+/* --- Labels / accent text → red --- */
+html[data-theme="pitch-light"] [class*="text-accent"] {
+  color: var(--pl-red);
+}
+
+/* Accent horizontal line decorators */
+html[data-theme="pitch-light"] .w-8.h-px,
+html[data-theme="pitch-light"] .w-12.h-px {
+  background-color: var(--pl-red);
+}
+
+/* Tracking-wide label text (section markers) */
+html[data-theme="pitch-light"] span[class*="tracking-"] {
+  color: var(--pl-red);
+}
+
+/* --- Hero section --- */
+html[data-theme="pitch-light"] section:first-of-type {
+  background: linear-gradient(
+    160deg,
+    #FFFFFF        0%,
+    #EFF9FF        50%,
+    #E2F2F8        100%
+  );
+  position: relative;
+}
+
+/* Subtle teal grid instead of white-on-white */
+html[data-theme="pitch-light"] .hero-grid {
+  background-image:
+    linear-gradient(rgba(69, 123, 157, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(69, 123, 157, 0.07) 1px, transparent 1px);
+}
+
+/* Hero glow → soft red tint */
+html[data-theme="pitch-light"] [class*="bg-accent\/"] {
+  background-color: rgba(230, 57, 70, 0.05);
+}
+
+/* Gradient fade at bottom of hero */
+html[data-theme="pitch-light"] .bg-gradient-to-t {
+  background: linear-gradient(to top, #EFF9FF, transparent);
+}
+
+/* Decorative radial glow for hero */
+html[data-theme="pitch-light"] section:first-of-type::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 75% 50%, rgba(168, 218, 220, 0.2) 0%, transparent 55%),
+    radial-gradient(circle at 15% 30%, rgba(230, 57, 70, 0.04) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+html[data-theme="pitch-light"] section:first-of-type > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Node graphic in hero → teal */
+html[data-theme="pitch-light"] section:first-of-type svg circle[fill="#3B7EF7"] {
+  fill: var(--pl-teal);
+}
+
+html[data-theme="pitch-light"] section:first-of-type svg line[stroke="#3B7EF7"] {
+  stroke: var(--pl-teal);
+}
+
+/* --- Primary CTA button → red --- */
+html[data-theme="pitch-light"] a[class*="bg-accent"] {
+  background-color: var(--pl-red);
+  color: #FFFFFF;
+  box-shadow: 0 2px 12px rgba(230, 57, 70, 0.2);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+html[data-theme="pitch-light"] a[class*="bg-accent"]:hover {
+  background-color: var(--pl-red-dark);
+  box-shadow: 0 4px 20px rgba(230, 57, 70, 0.3);
+}
+
+/* --- Secondary / outline button --- */
+html[data-theme="pitch-light"] a[class*="border-white\/"] {
+  border-color: var(--pl-border);
+  color: var(--pl-steel);
+}
+
+html[data-theme="pitch-light"] a[class*="border-white\/"]:hover {
+  border-color: var(--pl-navy);
+  color: var(--pl-navy);
+}
+
+/* --- Sections --- */
+html[data-theme="pitch-light"] section {
+  background-color: var(--pl-bg);
+}
+
+html[data-theme="pitch-light"] section:nth-child(even) {
+  background-color: var(--pl-bg-alt);
+}
+
+/* --- Problem section grid cards --- */
+html[data-theme="pitch-light"] .grid > div[class*="bg-navy-"] {
+  background-color: var(--pl-bg);
+  border: 1px solid var(--pl-border);
+  color: var(--pl-text);
+}
+
+html[data-theme="pitch-light"] .grid > div[class*="bg-navy-"]:hover {
+  background-color: var(--pl-bg-alt);
+  border-color: var(--pl-teal);
+}
+
+/* Grid gap line between cards */
+html[data-theme="pitch-light"] [class*="bg-white\/5"] {
+  background-color: var(--pl-border);
+}
+
+/* Mono number labels in cards */
+html[data-theme="pitch-light"] .font-mono {
+  color: var(--pl-teal-light);
+}
+
+/* --- Border / divider overrides --- */
+html[data-theme="pitch-light"] [class*="border-white\/"] {
+  border-color: var(--pl-border);
+}
+
+/* --- Logo swap: no badge needed on light bg --- */
+
+/* Hide the current generic SVG icon in header */
+html[data-theme="pitch-light"] header a[href="/"] > svg {
+  display: none;
+}
+
+/* Logo on light background: transparent container, no white badge */
+html[data-theme="pitch-light"] header a[href="/"]::before {
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  width: 42px;
+  height: 28px;
+  background: transparent url('/logo.png') center / contain no-repeat;
+}
+
+/* Footer logo */
+html[data-theme="pitch-light"] footer a[href="/"] > svg {
+  display: none;
+}
+
+html[data-theme="pitch-light"] footer a[href="/"]::before {
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  width: 34px;
+  height: 22px;
+  background: transparent url('/logo.png') center / contain no-repeat;
+  filter: brightness(0) invert(1);
+  opacity: 0.6;
+}
+
+/* --- Footer – keep dark for contrast --- */
+html[data-theme="pitch-light"] footer {
+  background-color: var(--pl-navy);
+  border-top: none;
+}
+
+html[data-theme="pitch-light"] footer a {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+html[data-theme="pitch-light"] footer a:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+html[data-theme="pitch-light"] footer span {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  html[data-theme="pitch-light"] section:first-of-type {
+    background: linear-gradient(180deg, #FFFFFF 0%, #EFF9FF 100%);
+  }
+}
