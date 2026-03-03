@@ -1,0 +1,90 @@
+/* ======================================================
+   REVENUE ENGINE – Hero Animation (SVG Premium)
+   Add-on for valos-1 theme
+   ====================================================== */
+
+.revenue-engine-wrapper {
+  position: absolute;
+  top: 50%;
+  right: -150px;
+  transform: translateY(-50%);
+  width: 700px;
+  height: 700px;
+  pointer-events: none;
+  opacity: 0.08;
+}
+
+.revenue-engine-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Rings */
+.revenue-engine-svg .engine-ring {
+  fill: none;
+  stroke: var(--color-primary, #0B1F33);
+  stroke-width: 1;
+}
+
+.revenue-engine-svg .engine-ring.middle {
+  stroke: var(--color-secondary, #1C2E40);
+}
+
+.revenue-engine-svg .engine-ring.inner {
+  stroke: var(--color-accent, #0A84FF);
+  stroke-opacity: 0.5;
+}
+
+/* Lines */
+.revenue-engine-svg .engine-lines line {
+  stroke: var(--color-primary, #0B1F33);
+  stroke-width: 0.8;
+  stroke-opacity: 0.6;
+}
+
+/* Nodes */
+.revenue-engine-svg .engine-nodes circle {
+  fill: var(--color-accent, #0A84FF);
+  opacity: 0.6;
+}
+
+/* Core Glow */
+.revenue-engine-svg .engine-core {
+  fill: var(--color-accent, #0A84FF);
+  opacity: 0.15;
+}
+
+/* Animations */
+.revenue-engine-svg .engine-lines {
+  transform-origin: 400px 400px;
+  animation: svgRotateSlow 120s linear infinite;
+}
+
+.revenue-engine-svg .engine-ring.outer {
+  transform-origin: 400px 400px;
+  animation: svgRotateReverse 180s linear infinite;
+}
+
+@keyframes svgRotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes svgRotateReverse {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+
+@media (max-width: 1200px) {
+  .revenue-engine-wrapper {
+    width: 500px;
+    height: 500px;
+    right: -100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .revenue-engine-wrapper {
+    display: none;
+  }
+}

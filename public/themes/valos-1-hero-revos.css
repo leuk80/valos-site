@@ -1,0 +1,86 @@
+/* ======================================================
+   REVENUE ENGINE – Hero Animation (CSS Rings)
+   Add-on for valos-1 theme
+   ====================================================== */
+
+.revenue-engine {
+  position: absolute;
+  top: 50%;
+  right: -200px;
+  transform: translateY(-50%);
+  width: 700px;
+  height: 700px;
+  pointer-events: none;
+  opacity: 0.08;
+}
+
+.engine-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--color-primary, #0B1F33);
+  border-radius: 50%;
+  animation: revenueRotateSlow 60s linear infinite;
+}
+
+.engine-ring-inner {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 15%;
+  left: 15%;
+  border: 1px solid var(--color-accent, #0A84FF);
+  border-radius: 50%;
+  animation: revenueRotateReverse 90s linear infinite;
+}
+
+.engine-core {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--color-accent, #0A84FF) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+.engine-line {
+  position: absolute;
+  width: 1px;
+  height: 50%;
+  background: var(--color-primary, #0B1F33);
+  top: 0;
+  left: 50%;
+  transform-origin: bottom center;
+}
+
+.engine-line:nth-child(4) { transform: rotate(0deg); }
+.engine-line:nth-child(5) { transform: rotate(45deg); }
+.engine-line:nth-child(6) { transform: rotate(90deg); }
+.engine-line:nth-child(7) { transform: rotate(135deg); }
+
+@keyframes revenueRotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes revenueRotateReverse {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+
+@media (max-width: 1024px) {
+  .revenue-engine {
+    width: 500px;
+    height: 500px;
+    right: -150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .revenue-engine {
+    display: none;
+  }
+}
