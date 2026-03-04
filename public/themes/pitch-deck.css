@@ -1,0 +1,293 @@
+/* ======================================================
+   VALOS PITCH DECK THEME – Pre-launch Design Preview
+   Source: Valos Sales Pitch.pptx (Brand Design System)
+
+   Color Palette (from PPTX theme XML):
+     Deep Navy:    #0F1D2E  (dk1 / primary background)
+     White:        #FFFFFF  (lt1)
+     Steel Blue:   #457B9D  (dk2 / accent4)
+     Light Blue:   #EFF9FF  (lt2)
+     Brand Red:    #E63946  (accent1 – primary brand accent)
+     Light Teal:   #A8DADC  (accent2)
+     Mid Teal:     #77ABBD  (accent3)
+     Dark Blue:    #2A4C66  (accent5)
+     Darkest Blue: #1D354A  (accent6)
+
+   Typography:
+     Primary: "Outfit" (Google Fonts)
+     Fallback: Inter, system-ui, sans-serif
+
+   Scope: html[data-theme="pitch"] for CSS specificity
+   override of Tailwind utility classes (0-1-2 vs 0-1-0).
+   ====================================================== */
+
+/* --- CSS Custom Properties --- */
+html[data-theme="pitch"] {
+  --pd-bg:          #0F1D2E;
+  --pd-bg-deep:     #0A141F;
+  --pd-bg-mid:      #152436;
+  --pd-bg-section:  #111C2C;
+  --pd-red:         #E63946;
+  --pd-red-dark:    #C9303C;
+  --pd-teal:        #77ABBD;
+  --pd-teal-light:  #A8DADC;
+  --pd-steel:       #457B9D;
+  --pd-dark-blue:   #2A4C66;
+  --pd-darkest:     #1D354A;
+  --pd-text:        #FFFFFF;
+  --pd-text-muted:  #A8BDCC;
+  --pd-text-dim:    #6B8899;
+  --pd-border:      rgba(69, 123, 157, 0.2);
+}
+
+/* --- Font injection (Outfit) --- */
+html[data-theme="pitch"] body {
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  background-color: var(--pd-bg);
+  color: var(--pd-text);
+}
+
+/* --- All bg-navy overrides → pitch deck navy --- */
+html[data-theme="pitch"] [class*="bg-navy-950"],
+html[data-theme="pitch"] [class*="bg-navy-900"] {
+  background-color: var(--pd-bg-section);
+}
+
+/* --- Hero section – gradient background --- */
+html[data-theme="pitch"] section:first-of-type {
+  background: linear-gradient(
+    135deg,
+    var(--pd-bg-deep)   0%,
+    var(--pd-bg)        40%,
+    var(--pd-darkest)   80%,
+    var(--pd-dark-blue) 100%
+  );
+  position: relative;
+}
+
+/* Hero grid – more visible with teal lines */
+html[data-theme="pitch"] .hero-grid {
+  background-image:
+    linear-gradient(rgba(119, 171, 189, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(119, 171, 189, 0.06) 1px, transparent 1px);
+}
+
+/* Hero glow – red accent */
+html[data-theme="pitch"] [class*="bg-accent\/"] {
+  background-color: rgba(230, 57, 70, 0.07);
+}
+
+/* Gradient fade at bottom of hero */
+html[data-theme="pitch"] .bg-gradient-to-t {
+  background: linear-gradient(to top, var(--pd-bg-deep), transparent);
+}
+
+/* --- Header --- */
+html[data-theme="pitch"] header {
+  background-color: rgba(10, 20, 31, 0.92);
+  border-bottom: 1px solid rgba(69, 123, 157, 0.15);
+  backdrop-filter: blur(12px);
+}
+
+/* --- Headings --- */
+html[data-theme="pitch"] h1,
+html[data-theme="pitch"] h2,
+html[data-theme="pitch"] h3,
+html[data-theme="pitch"] h4 {
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+}
+
+/* --- Paragraphs & body text --- */
+html[data-theme="pitch"] p {
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  color: var(--pd-text-muted);
+}
+
+/* --- Muted text classes --- */
+html[data-theme="pitch"] [class*="text-slate-400"],
+html[data-theme="pitch"] [class*="text-slate-500"] {
+  color: var(--pd-text-muted);
+}
+
+html[data-theme="pitch"] [class*="text-slate-600"],
+html[data-theme="pitch"] [class*="text-slate-700"] {
+  color: var(--pd-text-dim);
+}
+
+/* --- Labels / accent text (currently blue → red) --- */
+html[data-theme="pitch"] [class*="text-accent"] {
+  color: var(--pd-red);
+}
+
+/* Accent horizontal line decorators */
+html[data-theme="pitch"] .w-8.h-px,
+html[data-theme="pitch"] .w-12.h-px {
+  background-color: var(--pd-red);
+}
+
+/* Tracking-wide label text (section markers) */
+html[data-theme="pitch"] span[class*="tracking-"] {
+  color: var(--pd-red);
+}
+
+/* --- Primary CTA button – red --- */
+html[data-theme="pitch"] a[class*="bg-accent"] {
+  background-color: var(--pd-red);
+  color: #FFFFFF;
+  box-shadow: 0 0 20px rgba(230, 57, 70, 0.25);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+html[data-theme="pitch"] a[class*="bg-accent"]:hover {
+  background-color: var(--pd-red-dark);
+  box-shadow: 0 0 28px rgba(230, 57, 70, 0.4);
+}
+
+/* --- Secondary / outline button --- */
+html[data-theme="pitch"] a[class*="border-white\/"] {
+  border-color: rgba(119, 171, 189, 0.25);
+  color: var(--pd-text-muted);
+}
+
+html[data-theme="pitch"] a[class*="border-white\/"]:hover {
+  border-color: rgba(119, 171, 189, 0.5);
+  color: #FFFFFF;
+}
+
+/* --- Sections --- */
+html[data-theme="pitch"] section {
+  background-color: var(--pd-bg);
+}
+
+html[data-theme="pitch"] section:nth-child(even) {
+  background-color: var(--pd-bg-section);
+}
+
+/* --- Problem section grid cards --- */
+html[data-theme="pitch"] .grid > div[class*="bg-navy-"] {
+  background-color: var(--pd-bg-section);
+  border: 1px solid var(--pd-border);
+}
+
+html[data-theme="pitch"] .grid > div[class*="bg-navy-"]:hover {
+  background-color: var(--pd-darkest);
+  border-color: rgba(119, 171, 189, 0.35);
+}
+
+/* Grid gap overlay */
+html[data-theme="pitch"] [class*="bg-white\/5"] {
+  background-color: rgba(69, 123, 157, 0.12);
+}
+
+/* Mono number labels in problem cards */
+html[data-theme="pitch"] .font-mono {
+  color: var(--pd-text-dim);
+}
+
+/* --- Border / divider overrides --- */
+html[data-theme="pitch"] [class*="border-white\/"] {
+  border-color: var(--pd-border);
+}
+
+/* --- Logo swap: replace inline SVG with brand PNG logo --- */
+
+/* Hide the current generic SVG icon in header */
+html[data-theme="pitch"] header a[href="/"] > svg {
+  display: none;
+}
+
+/* Inject brand logo via ::before pseudo-element.
+   The PNG has a white background, displayed as a
+   clean badge matching the precision-engineering brand aesthetic. */
+html[data-theme="pitch"] header a[href="/"]::before {
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  width: 42px;
+  height: 28px;
+  background: white url('/logo.png') center / contain no-repeat;
+  border-radius: 4px;
+}
+
+/* Footer logo – same swap */
+html[data-theme="pitch"] footer a[href="/"] > svg {
+  display: none;
+}
+
+html[data-theme="pitch"] footer a[href="/"]::before {
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  width: 34px;
+  height: 22px;
+  background: white url('/logo.png') center / contain no-repeat;
+  border-radius: 3px;
+  opacity: 0.85;
+}
+
+/* --- Footer --- */
+html[data-theme="pitch"] footer {
+  background-color: var(--pd-bg-deep);
+  border-top-color: rgba(69, 123, 157, 0.15);
+}
+
+html[data-theme="pitch"] footer a {
+  color: var(--pd-text-dim);
+}
+
+html[data-theme="pitch"] footer a:hover {
+  color: var(--pd-text-muted);
+}
+
+html[data-theme="pitch"] footer span {
+  color: var(--pd-text-dim);
+}
+
+/* --- Gear / Blueprint decorative motif in hero ---
+   A subtle technical grid pattern as background for hero,
+   echoing the mechanical gear imagery from the pitch deck. */
+html[data-theme="pitch"] section:first-of-type::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 70% 50%, rgba(119, 171, 189, 0.04) 0%, transparent 60%),
+    radial-gradient(circle at 20% 20%, rgba(230, 57, 70, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+html[data-theme="pitch"] section:first-of-type > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Teal accent highlight for special elements ---
+   Use on secondary labels or structural elements. */
+html[data-theme="pitch"] .border-accent,
+html[data-theme="pitch"] [class*="bg-accent\/"] {
+  border-color: var(--pd-teal);
+}
+
+/* --- Node graphic in hero (abstract SVG lines) --- */
+html[data-theme="pitch"] section:first-of-type svg circle[fill="#3B7EF7"] {
+  fill: var(--pd-teal);
+}
+
+html[data-theme="pitch"] section:first-of-type svg line[stroke="#3B7EF7"] {
+  stroke: var(--pd-teal);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  html[data-theme="pitch"] section:first-of-type {
+    background: linear-gradient(
+      180deg,
+      var(--pd-bg-deep) 0%,
+      var(--pd-bg) 100%
+    );
+  }
+}

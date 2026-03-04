@@ -1,0 +1,190 @@
+/* ======================================================
+   VALOS 1 THEME – Pre-launch Design Preview
+   Scoped under html[data-theme="valos-1"] to override
+   Tailwind utility classes (higher specificity: 0-1-2 vs 0-1-0)
+   ====================================================== */
+
+/* --- CSS Custom Properties --- */
+html[data-theme="valos-1"] {
+  --color-primary:   #0B1F33;
+  --color-secondary: #1C2E40;
+  --color-accent:    #0A84FF;
+  --color-light:     #F8FAFC;
+  --color-white:     #FFFFFF;
+  --color-grey:      #6B7280;
+  --color-border:    #E5E7EB;
+  --font-primary:    'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* --- Body --- */
+html[data-theme="valos-1"] body {
+  background-color: #FFFFFF;
+  color: #1C2E40;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* --- All navy-background elements --- */
+html[data-theme="valos-1"] [class*="bg-navy-"] {
+  background-color: #F8FAFC;
+  color: #1C2E40;
+}
+
+/* --- Header --- */
+html[data-theme="valos-1"] header {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E5E7EB;
+  backdrop-filter: none;
+}
+
+html[data-theme="valos-1"] header a {
+  color: #0B1F33;
+}
+
+html[data-theme="valos-1"] header span {
+  color: #6B7280;
+}
+
+html[data-theme="valos-1"] header nav a {
+  color: #6B7280;
+}
+
+html[data-theme="valos-1"] header nav a:hover {
+  color: #0B1F33;
+}
+
+/* --- Headings --- */
+html[data-theme="valos-1"] h1,
+html[data-theme="valos-1"] h2,
+html[data-theme="valos-1"] h3,
+html[data-theme="valos-1"] h4 {
+  color: #0B1F33;
+}
+
+/* --- Paragraphs & text --- */
+html[data-theme="valos-1"] p {
+  color: #1C2E40;
+}
+
+html[data-theme="valos-1"] [class*="text-slate-"],
+html[data-theme="valos-1"] [class*="text-white"] {
+  color: #1C2E40;
+}
+
+/* Preserve accent colored labels */
+html[data-theme="valos-1"] [class*="text-accent"] {
+  color: #0A84FF;
+}
+
+/* --- Sections --- */
+html[data-theme="valos-1"] section {
+  background-color: #FFFFFF;
+}
+
+/* Alternating section backgrounds */
+html[data-theme="valos-1"] section:nth-child(even) {
+  background-color: #F8FAFC;
+}
+
+/* --- Hero section overrides --- */
+html[data-theme="valos-1"] section:first-of-type {
+  background-color: #F8FAFC;
+  color: #1C2E40;
+}
+
+/* Hero grid background – lighten it */
+html[data-theme="valos-1"] .hero-grid {
+  background-image:
+    linear-gradient(rgba(11, 31, 51, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 31, 51, 0.04) 1px, transparent 1px);
+}
+
+/* Hero glow – recolor */
+html[data-theme="valos-1"] [class*="bg-accent\/"] {
+  background-color: rgba(10, 132, 255, 0.06);
+}
+
+/* Gradient fade at bottom of hero */
+html[data-theme="valos-1"] .bg-gradient-to-t {
+  background: linear-gradient(to top, #F8FAFC, transparent);
+}
+
+/* --- Problem section grid --- */
+html[data-theme="valos-1"] .grid > div[class*="bg-navy-"] {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+}
+
+html[data-theme="valos-1"] .grid > div[class*="bg-navy-"]:hover {
+  background-color: #F8FAFC;
+}
+
+/* Mono number labels in problem cards */
+html[data-theme="valos-1"] .font-mono {
+  color: #D1D5DB;
+}
+
+/* --- Divider lines and decorative elements --- */
+html[data-theme="valos-1"] [class*="border-white\/"] {
+  border-color: #E5E7EB;
+}
+
+html[data-theme="valos-1"] [class*="bg-white\/"] {
+  background-color: rgba(11, 31, 51, 0.05);
+}
+
+/* Accent line (h-px decorators) */
+html[data-theme="valos-1"] .w-8.h-px,
+html[data-theme="valos-1"] .w-12.h-px {
+  background-color: #0A84FF;
+}
+
+/* --- Buttons --- */
+html[data-theme="valos-1"] a[class*="bg-accent"] {
+  background-color: #0B1F33;
+  color: #FFFFFF;
+}
+
+html[data-theme="valos-1"] a[class*="bg-accent"]:hover {
+  background-color: #0A84FF;
+}
+
+/* Outline / secondary button */
+html[data-theme="valos-1"] a[class*="border-white\/"] {
+  border-color: #0B1F33;
+  color: #0B1F33;
+}
+
+html[data-theme="valos-1"] a[class*="border-white\/"]:hover {
+  background-color: #0B1F33;
+  color: #FFFFFF;
+}
+
+/* --- Footer --- */
+html[data-theme="valos-1"] footer {
+  background-color: #0B1F33;
+  border-top: none;
+}
+
+html[data-theme="valos-1"] footer span,
+html[data-theme="valos-1"] footer a {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+html[data-theme="valos-1"] footer a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* --- Typography scale --- */
+html[data-theme="valos-1"] h1 {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+html[data-theme="valos-1"] h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  letter-spacing: -0.01em;
+}
