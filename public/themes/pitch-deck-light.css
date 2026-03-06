@@ -174,14 +174,16 @@ html[data-theme="pitch-light"] section:first-of-type svg line[stroke="#3B7EF7"] 
 }
 
 /* --- Primary CTA button → red --- */
-html[data-theme="pitch-light"] a[class*="bg-accent"] {
+html[data-theme="pitch-light"] a[class*="bg-accent"],
+html[data-theme="pitch-light"] button[class*="bg-accent"] {
   background-color: var(--pl-red);
   color: #FFFFFF;
   box-shadow: 0 2px 12px rgba(230, 57, 70, 0.2);
   transition: background-color 0.2s, box-shadow 0.2s;
 }
 
-html[data-theme="pitch-light"] a[class*="bg-accent"]:hover {
+html[data-theme="pitch-light"] a[class*="bg-accent"]:hover,
+html[data-theme="pitch-light"] button[class*="bg-accent"]:hover {
   background-color: var(--pl-red-dark);
   box-shadow: 0 4px 20px rgba(230, 57, 70, 0.3);
 }
